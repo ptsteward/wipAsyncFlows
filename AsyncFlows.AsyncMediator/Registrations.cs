@@ -1,7 +1,7 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 
-namespace AsyncFlows.AsyncMediator;
+namespace AsyncFlows.Registrations;
 
 public static class Registrations
 {

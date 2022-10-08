@@ -1,8 +1,8 @@
 ﻿namespace AsyncFlows.AsyncMediator;
 
-public interface IFlowSink<TItem>
+public interface IFlowSink<TSchema>
     : IAsyncDisposable, IDisposable
-    where TItem : Envelope
+    where TSchema : Envelope
 {
-    IAsyncEnumerable<TItem> ConsumeAsync(CancellationToken cancelToken = default);
+    IAsyncEnumerable<TSchema> ConsumeAsync(CancellationToken cancelToken = default);
 }

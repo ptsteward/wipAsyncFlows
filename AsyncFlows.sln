@@ -7,9 +7,17 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AsyncFlows.AsyncMediator", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PulsarFlows.Tests", "PulsarFlows.Tests\PulsarFlows.Tests.csproj", "{77A94797-E5F3-4769-B971-24D238E5A115}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AsyncFlows.Extensions", "AsyncFlows.Extensions\AsyncFlows.Extensions.csproj", "{B28EF005-3FE7-465D-96FD-73EF82A59D82}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AsyncFlows.Extensions", "AsyncFlows.Extensions\AsyncFlows.Extensions.csproj", "{B28EF005-3FE7-465D-96FD-73EF82A59D82}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AsyncFlows.AsyncMediator.Tests", "AsyncFlows.AsyncMediator.Tests\AsyncFlows.AsyncMediator.Tests.csproj", "{E82FFE51-60B2-49EB-99F5-B35C5E82E8CD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AsyncFlows.AsyncMediator.Tests", "AsyncFlows.AsyncMediator.Tests\AsyncFlows.AsyncMediator.Tests.csproj", "{E82FFE51-60B2-49EB-99F5-B35C5E82E8CD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionFiles", "SolutionFiles", "{4672215E-2E05-41D2-BD94-4D812349D68C}"
+	ProjectSection(SolutionItems) = preProject
+		.filenesting.json = .filenesting.json
+		AsyncFlows.filenesting.json = AsyncFlows.filenesting.json
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AsyncFlows.Exceptions", "AsyncFlows.Exceptions\AsyncFlows.Exceptions.csproj", "{E355D701-D6EE-4729-AA3C-3B5443CB989D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +41,10 @@ Global
 		{E82FFE51-60B2-49EB-99F5-B35C5E82E8CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E82FFE51-60B2-49EB-99F5-B35C5E82E8CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E82FFE51-60B2-49EB-99F5-B35C5E82E8CD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E355D701-D6EE-4729-AA3C-3B5443CB989D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E355D701-D6EE-4729-AA3C-3B5443CB989D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E355D701-D6EE-4729-AA3C-3B5443CB989D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E355D701-D6EE-4729-AA3C-3B5443CB989D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
