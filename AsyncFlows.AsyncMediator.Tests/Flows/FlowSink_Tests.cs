@@ -1,18 +1,13 @@
-﻿using AsyncFlows.AsyncMediator.Flows;
-using AsyncFlows.AsyncMediator.Tests.Utilities;
+﻿using AsyncFlows.AsyncMediator.Tests.Utilities;
 using AsyncFlows.Extensions;
+using AsyncFlows.Registrations;
 using FluentAssertions;
 using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Xunit.Abstractions;
 
 namespace AsyncFlows.AsyncMediator.Tests.Flows;
 
-public class FlowSink_Tests : IAsyncDisposable
+public class Flow_UnitTests : IAsyncDisposable
 {
     private readonly ITestOutputHelper console;
     private readonly IFlowSource<Envelope<string>> source;
@@ -20,7 +15,7 @@ public class FlowSink_Tests : IAsyncDisposable
     private readonly CancellationTokenSource tokenSource;
     private readonly CancellationToken cancelToken;
 
-    public FlowSink_Tests(ITestOutputHelper console)
+    public Flow_UnitTests(ITestOutputHelper console)
     {
         var services = new ServiceCollection();
         services.AddFlow<Envelope<string>>();
@@ -34,7 +29,7 @@ public class FlowSink_Tests : IAsyncDisposable
     }
 
     [Theory, AutoMoqData]
-    public async Task Sink_LinksToSource_ConsumesExpected(
+    public async Task Flow_SinkLinksToSource_ConsumesExpected(
         Envelope<string> expected)
     {
         var submitted = await source.EmitAsync(expected, cancelToken);
@@ -45,7 +40,7 @@ public class FlowSink_Tests : IAsyncDisposable
     }
 
     [Theory, AutoMoqData]
-    public async Task Sink_LinksToSource_CompletionPropagation_SinkStopsEnumeration_Graceful(
+    public async Task Flow_CompletionPropagation_SinkStopsEnumeration_Graceful(
         Envelope<string> expected)
     {
         var set = await EnumerateSink(expected);
@@ -55,7 +50,7 @@ public class FlowSink_Tests : IAsyncDisposable
     }
 
     [Theory, AutoMoqData]
-    public async Task Sink_LinksToSource_CompletionPropagation_SinkIsDisposed(
+    public async Task Flow_CompletionPropagation_SinkIsDisposed(
         Envelope<string> expected)
     {
         var set = await EnumerateSink(expected);

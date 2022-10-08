@@ -2,13 +2,13 @@
 
 namespace AsyncFlows.AsyncMediator.Flows;
 
-public sealed class FlowSink<TSchema>
+internal sealed class FlowSink<TSchema>
     : IFlowSink<TSchema>
     where TSchema : Envelope
 {
     private readonly IDisposable link;
-    public volatile bool isDisposed;
-    public BufferBlock<TSchema>? Buffer { get; set; }
+    private volatile bool isDisposed;
+    private BufferBlock<TSchema>? Buffer { get; set; }
 
     public FlowSink(ILinkableSource<TSchema> source)
     {

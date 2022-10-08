@@ -2,7 +2,7 @@
 
 namespace AsyncFlows.AsyncMediator.Flows;
 
-public interface ILinkableSource<TSchema>
+internal interface ILinkableSource<TSchema>
     where TSchema : Envelope
 {
     IDisposable LinkTo(ITargetBlock<TSchema> sink);

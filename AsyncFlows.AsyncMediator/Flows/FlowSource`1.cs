@@ -11,16 +11,16 @@ internal sealed class FlowSource<TSchema>
     private BroadcastBlock<TSchema>? Source { get; set; }
 
     public FlowSource()
-        => Source = new(item => item,
+        => Source = new(msg => msg,
             new()
             {
                 EnsureOrdered = true,
                 BoundedCapacity = DataflowBlockOptions.Unbounded
             });
 
-    public ValueTask<bool> EmitAsync(TSchema item, CancellationToken cancelToken = default)
+    public ValueTask<bool> EmitAsync(TSchema message, CancellationToken cancelToken = default)
         => Source.ThrowIfDisposed(isDisposed)
-            .OfferAsync(item, TimeSpan.FromMilliseconds(300), cancelToken)
+            .OfferAsync(message, TimeSpan.FromMilliseconds(300), cancelToken)
             .Attempt(onError: ex => ValueTask.FromResult(false));
 
     

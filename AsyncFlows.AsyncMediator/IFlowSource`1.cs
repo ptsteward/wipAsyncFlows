@@ -4,5 +4,5 @@ public interface IFlowSource<TSchema>
     : IAsyncDisposable, IDisposable
     where TSchema : Envelope
 {
-    ValueTask<bool> EmitAsync(TSchema item, CancellationToken cancelToken = default);
+    ValueTask<bool> EmitAsync(TSchema message, CancellationToken cancelToken = default);
 }
