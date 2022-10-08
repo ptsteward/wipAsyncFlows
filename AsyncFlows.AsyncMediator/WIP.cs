@@ -15,13 +15,20 @@ using System.Threading.Tasks.Dataflow;
 namespace AsyncFlows.AsyncMediator;
 public interface IAsyncMediator
 {
-    ValueTask SubmitAsync<TItem>(TItem item, CancellationToken cancelToken = default);
-    IAsyncEnumerable<TOut> SubmitAsync<TItem, TOut>(TItem item, CancellationToken cancelToken = default);
+    ValueTask SubmitAsync<TSchema>(TSchema message, CancellationToken cancelToken = default);
+    IAsyncEnumerable<TOut> SubmitAsync<TSchema, TOut>(TSchema message, CancellationToken cancelToken = default);
+    IAsyncEnumerable<TSchema> ReceiveAsync<TSchema>(CancellationToken cancelToken = default);
 }
 
 internal sealed class AsyncMediator
-    : BackgroundService
+    : BackgroundService,
+    IAsyncMediator
 {
+    
     protected override Task ExecuteAsync(CancellationToken stoppingToken)
         => throw new NotImplementedException();
+
+    public IAsyncEnumerable<TSchema> ReceiveAsync<TSchema>(CancellationToken cancelToken = default) => throw new NotImplementedException();
+    public ValueTask SubmitAsync<TSchema>(TSchema message, CancellationToken cancelToken = default) => throw new NotImplementedException();
+    public IAsyncEnumerable<TOut> SubmitAsync<TSchema, TOut>(TSchema message, CancellationToken cancelToken = default) => throw new NotImplementedException();
 }

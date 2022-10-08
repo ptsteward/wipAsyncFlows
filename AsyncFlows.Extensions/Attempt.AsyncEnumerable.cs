@@ -5,12 +5,12 @@ public static partial class Extensions
     public static IAsyncEnumerable<T> Attempt<T>(
         this Func<IAsyncEnumerable<T>> iterator,
         Func<Exception, IAsyncEnumerable<T>> onError,
-        Func<Exception, bool>? isError = default)
+        Func<Exception, bool>? canHandle = default)
         where T : class
     {
         while (true)
         {
-            var shouldHandleEx = SetIsErrorDecision(isError);            
+            var shouldHandleEx = SetIsErrorDecision(canHandle);            
             var enumerable = iterator().GetAsyncEnumerator()
                 .ExposeAsyncMoveNext(onError, shouldHandleEx);
             return enumerable;

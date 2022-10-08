@@ -25,7 +25,7 @@ internal sealed class FlowSource<TSchema>
 
     
 
-    public IDisposable LinkTo(ITargetBlock<TSchema> sink)
+    IDisposable ILinkableSource<TSchema>.LinkTo(ITargetBlock<TSchema> sink)
         => Source.ThrowIfDisposed(isDisposed)
             .LinkTo(sink, new()
             {
